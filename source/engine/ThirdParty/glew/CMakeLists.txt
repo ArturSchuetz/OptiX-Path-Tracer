@@ -45,7 +45,7 @@ IF ( glew-cmake_BUILD_STATIC )
 		SET_TARGET_PROPERTIES( libglew_static PROPERTIES
 		                       ARCHIVE_OUTPUT_NAME "glew"
 		                       DEBUG_POSTFIX d 
-							   FOLDER "Engine/ThirdParty" )
+							   FOLDER "ThirdParty" )
 		TARGET_INCLUDE_DIRECTORIES( libglew_static PUBLIC ${INCLUDE_DIR} )
 		TARGET_LINK_LIBRARIES( libglew_static ${GL_LIBRARY} ${PLATFORM_SPECIFIC_LIBRARIES} )
 
@@ -82,7 +82,7 @@ IF ( glew-cmake_BUILD_STATIC )
 		SET_TARGET_PROPERTIES( libglewmx_static PROPERTIES
 		                       ARCHIVE_OUTPUT_NAME "glewmx"
 		                       DEBUG_POSTFIX d 
-							   FOLDER "Engine/ThirdParty" )
+							   FOLDER "ThirdParty" )
 		TARGET_COMPILE_DEFINITIONS( libglewmx_static INTERFACE GLEW_MX)
 		TARGET_INCLUDE_DIRECTORIES( libglewmx_static PUBLIC ${INCLUDE_DIR} )
 		TARGET_LINK_LIBRARIES( libglewmx_static ${GL_LIBRARY} ${PLATFORM_SPECIFIC_LIBRARIES} )
@@ -123,7 +123,7 @@ IF ( glew-cmake_BUILD_SHARED )
 		                       RUNTIME_OUTPUT_NAME "glew"
 		                       LIBRARY_OUTPUT_NAME "glew"
 		                       DEBUG_POSTFIX d 
-							   FOLDER "Engine/ThirdParty" )
+							   FOLDER "ThirdParty" )
 
 		TARGET_INCLUDE_DIRECTORIES( libglew_shared PUBLIC ${INCLUDE_DIR} )
 		TARGET_LINK_LIBRARIES( libglew_shared ${GL_LIBRARY} ${PLATFORM_SPECIFIC_LIBRARIES} )
@@ -162,7 +162,7 @@ IF ( glew-cmake_BUILD_SHARED )
 		                       RUNTIME_OUTPUT_NAME "glewmx"
 		                       LIBRARY_OUTPUT_NAME "glewmx"
 		                       DEBUG_POSTFIX d 
-							   FOLDER "Engine/ThirdParty" )
+							   FOLDER "ThirdParty" )
 
 		TARGET_COMPILE_DEFINITIONS( libglewmx_shared INTERFACE GLEW_MX)
 		TARGET_INCLUDE_DIRECTORIES( libglewmx_shared PUBLIC ${INCLUDE_DIR} )
@@ -194,7 +194,6 @@ IF ( glew-cmake_BUILD_SHARED )
 		# )
 	ENDIF (  )
 ENDIF (  )
-
 
 FILE( GLOB PUBLIC_HEADERS "include/GL/*.h" )
 #INSTALL( FILES ${PUBLIC_HEADERS} DESTINATION include/GL/ )
