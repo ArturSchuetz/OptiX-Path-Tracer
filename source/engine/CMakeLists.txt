@@ -1,0 +1,8 @@
+add_subdirectory(InputDevice)
+add_subdirectory(InputDeviceImplementations)
+add_subdirectory(RenderDevice)
+add_subdirectory(RenderDeviceImplementations)
+add_subdirectory(CoreSystems)
+add_subdirectory(Resources)
+add_subdirectory(Platform)
+add_subdirectory(ThirdParty)
