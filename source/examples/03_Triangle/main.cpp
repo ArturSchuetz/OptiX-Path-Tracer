@@ -32,10 +32,8 @@ void main(void)
 
 int main()
 {
-	bow::RenderDeviceAPI deviceApi = bow::RenderDeviceAPI::OpenGL3x;
-
 	// Creating Render Device
-	bow::RenderDevicePtr deviceOGL = bow::RenderDeviceManager::GetInstance().GetOrCreateDevice(deviceApi);
+	bow::RenderDevicePtr deviceOGL = bow::RenderDeviceManager::GetInstance().GetOrCreateDevice(bow::RenderDeviceAPI::OpenGL3x);
 	if (deviceOGL == nullptr)
 	{
 		std::cout << "Could not create device!" << std::endl;
@@ -87,11 +85,9 @@ int main()
 	bow::VertexArrayPtr vertexArray = contextOGL->VCreateVertexArray();
 
 	// connect buffer with location in shader
-	if (deviceApi == bow::RenderDeviceAPI::OpenGL3x)
-	{
-		vertexArray->VSetAttribute(shaderProgram->VGetVertexAttribute("in_Position"), positionAttribute);
-		vertexArray->VSetAttribute(shaderProgram->VGetVertexAttribute("in_Color"), colorsAttribute);
-	}
+	vertexArray->VSetAttribute(shaderProgram->VGetVertexAttribute("in_Position"), positionAttribute);
+	vertexArray->VSetAttribute(shaderProgram->VGetVertexAttribute("in_Color"), colorsAttribute);
+
 
 	///////////////////////////////////////////////////////////////////
 	// RenderState

@@ -152,7 +152,7 @@ namespace bow {
 			return m_texCoords.size();
 		}
 
-		std::vector<unsigned int>&	GetIndices() { 
+		std::vector<size_t>& GetIndices() { 
 			return m_indices; 
 		}
 
@@ -225,7 +225,7 @@ namespace bow {
 
 		std::vector<std::string>				m_materialFilesList;
 
-		std::vector<unsigned int>	m_indices;
+		std::vector<size_t>	m_indices;
 		std::vector<Vector3<float>> m_vertices;
 		std::vector<Vector3<float>> m_normals;
 		std::vector<Vector3<float>> m_tangents;

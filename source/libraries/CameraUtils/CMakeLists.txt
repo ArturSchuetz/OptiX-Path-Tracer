@@ -44,7 +44,14 @@ if(NOT PASSED_FIRST_CONFIGURE)
     endif()
   endif()
 
-  set(CUDA_NVRTC_FLAGS -arch compute_30 -use_fast_math -default-device -rdc true -D__x86_64 CACHE LIST "Semi-colon delimit multiple arguments." FORCE)
+  set(CUDA_NVRTC_FLAGS CACHE STRING "Semi-colon delimit multiple arguments." FORCE)
+  list(APPEND CUDA_NVRTC_FLAGS
+    "-arch" "compute_30"
+    "-use_fast_math"
+    "-default-device"
+    "-rdc" "true"
+    "-D__x86_64"
+  )  
 endif(NOT PASSED_FIRST_CONFIGURE)
 
 mark_as_advanced(CUDA_NVRTC_FLAGS)

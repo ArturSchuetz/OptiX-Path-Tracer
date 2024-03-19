@@ -4,7 +4,7 @@
 # 
 
 # CMake version
-cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5)
 
 #
 # Configure CMake environment
@@ -77,7 +77,7 @@ option(BUILD_SHARED_LIBS      "Build shared instead of static libraries."       
 option(OPTION_SELF_CONTAINED  "Create a self-contained install with all dependencies." OFF)
 option(OPTION_BUILD_TESTS     "Build tests."                                           ON)
 option(OPTION_BUILD_DOCS      "Build documentation."                                   OFF)
-option(OPTION_BUILD_EXAMPLES  "Build examples."                                        OFF)
+option(OPTION_BUILD_EXAMPLES  "Build examples."                                        ON)
 option(OPTION_ENABLE_COVERAGE "Add coverage information."                              OFF)
 # Turn off the warning that NVCC issues when generating PTX from our CUDA samples.  This
 # is a custom extension to the FindCUDA code distributed by CMake.
@@ -101,6 +101,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 
 # Create version file
 file(WRITE "${PROJECT_BINARY_DIR}/VERSION" "${META_NAME_VERSION}")
+
+add_definitions(-DRESOURCE_PATH="${CMAKE_SOURCE_DIR}/data/")
 
 #
 # Project Health Check Setup
@@ -200,8 +202,8 @@ set(PROJECT_BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 # 
 
 add_subdirectory(source)
-add_subdirectory(docs)
-add_subdirectory(deploy)
+#add_subdirectory(docs)
+#add_subdirectory(deploy)
 
 
 # 

@@ -3,17 +3,17 @@
 
 namespace bow {
 	
-	IndicesUnsignedInt::IndicesUnsignedInt() : IIndicesBase(IndicesType::UnsignedInt), Values(std::vector<unsigned int>())
+	IndicesUnsignedInt::IndicesUnsignedInt() : IIndicesBase(IndicesType::UnsignedInt), Values(std::vector<size_t>())
 	{
 	}
 
-	IndicesUnsignedInt::IndicesUnsignedInt(int capacity) : IIndicesBase(IndicesType::UnsignedInt), Values(std::vector<unsigned int>(capacity))
+	IndicesUnsignedInt::IndicesUnsignedInt(int capacity) : IIndicesBase(IndicesType::UnsignedInt), Values(std::vector<size_t>(capacity))
 	{
 	}
 
-	unsigned int IndicesUnsignedInt::Size()
+	size_t IndicesUnsignedInt::Size()
 	{
-		return (unsigned int)Values.size();
+		return (size_t)Values.size();
 	}
 
 	IndicesUnsignedInt::~IndicesUnsignedInt()

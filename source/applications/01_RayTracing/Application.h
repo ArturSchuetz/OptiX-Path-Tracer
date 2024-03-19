@@ -10,5 +10,5 @@ public:
 	~SimpleDirectionalLightApp();
 
 private:
-	std::string GetWindowTitle(void) { return "Fresnel Reflections And Specularity"; }
+	std::string GetWindowTitle(void) { return "Ray Tracing Example"; }
 };

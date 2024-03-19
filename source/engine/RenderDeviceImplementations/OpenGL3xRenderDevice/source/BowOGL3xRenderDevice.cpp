@@ -208,9 +208,9 @@ namespace bow {
 			}
 			else if (mesh.Indices->Type == IndicesType::UnsignedInt)
 			{
-				std::vector<unsigned int> meshIndices = (std::dynamic_pointer_cast<IndicesUnsignedInt>(mesh.Indices))->Values;
+				std::vector<size_t> meshIndices = (std::dynamic_pointer_cast<IndicesUnsignedInt>(mesh.Indices))->Values;
 
-				std::vector<unsigned int> indices = std::vector<unsigned int>(meshIndices.size());
+				std::vector<size_t> indices = std::vector<size_t>(meshIndices.size());
 				for (unsigned int j = 0; j < meshIndices.size(); ++j)
 				{
 					indices[j] = meshIndices[j];

@@ -19,8 +19,17 @@ namespace bow {
 	protected:
 		virtual std::string GetWindowTitle(void) { return "Application"; }
 		virtual void OnInit() {}
-		virtual void OnResized(unsigned int newWidth, unsigned int newHeight) {}
-		virtual void OnUpdate(double deltaTime) {}
+
+		virtual void OnResized(int newWidth, int newHeight) {
+			(void)newWidth;
+			(void)newHeight;
+		}
+
+		virtual void OnUpdate(double deltaTime)
+		{
+			(void)deltaTime;
+		}
+
 		virtual void OnRender(void) {}
 		virtual void OnRelease(void) {}
 
@@ -36,8 +45,8 @@ namespace bow {
 	private:
 		void Init(unsigned int width, unsigned int height);
 
-		unsigned int	m_width;
-		unsigned int	m_height;
+		int				m_width;
+		int				m_height;
 
 		BasicTimer		m_timer;
 		Texture2DPtr	m_colorTexture;

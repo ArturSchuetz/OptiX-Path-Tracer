@@ -11,9 +11,9 @@ namespace bow {
 	{
 	}
 
-	unsigned int IndicesUnsignedShort::Size()
+	size_t IndicesUnsignedShort::Size()
 	{
-		return (unsigned int)Values.size();
+		return Values.size();
 	}
 
 	IndicesUnsignedShort::~IndicesUnsignedShort()

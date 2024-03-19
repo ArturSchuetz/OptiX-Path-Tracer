@@ -15,7 +15,7 @@ namespace bow {
 		IndicesUnsignedShort(int capacity);
 		~IndicesUnsignedShort();
 
-		unsigned int Size();
+		size_t Size();
 		std::vector<unsigned short> Values;
 	};
 

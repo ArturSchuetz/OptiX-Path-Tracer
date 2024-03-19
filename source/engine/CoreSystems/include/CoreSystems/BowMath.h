@@ -28,7 +28,7 @@ namespace bow
 	namespace math
 	{
 		//Taken from 'From Quaterninon to Matrix and Back', J.M.P. van Waveren, February 27th 2005
-		static float CORESYSTEMS_API Sqrt(float x) {
+		inline static float CORESYSTEMS_API Sqrt(float x) {
 			long i;
 			float y, r;
 			y = x * 0.5f;
@@ -39,7 +39,7 @@ namespace bow
 			return r;
 		}
 
-		static float CORESYSTEMS_API Sqrt(double x) {
+		inline static float CORESYSTEMS_API Sqrt(double x) {
 			long i;
 			double y, r;
 			y = x * 0.5f;

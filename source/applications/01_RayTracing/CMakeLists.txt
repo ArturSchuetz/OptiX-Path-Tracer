@@ -3,7 +3,7 @@
 # External dependencies
 # 
 
-find_package(CUDA 5.0 REQUIRED)
+find_package(CUDA 11.0 REQUIRED)
 if(CUDA_FOUND)
     include_directories("${CUDA_INCLUDE_DIRS}")
     link_directories ("${CUDA_LIBRARY_DIRS}")
@@ -31,8 +31,8 @@ message(STATUS "Application ${target}")
 # 
 
 set(sources
-	Application.h
-	Application.cpp
+    Application.cpp
+    Application.h
     main.cpp
 )
 
@@ -44,10 +44,7 @@ set(sources
 # Build executable
 add_executable(${target}
     MACOSX_BUNDLE
-    ${source_files}
     ${sources}
-    ${generated_files}
-    ${cmake_options}
 )
 
 # Create namespaced alias
@@ -61,6 +58,7 @@ add_executable(${META_PROJECT_NAME}::${target} ALIAS ${target})
 set_target_properties(${target}
     PROPERTIES
     ${DEFAULT_PROJECT_OPTIONS}
+    INSTALL_RPATH "${EXECUTABLE_INSTALL_RPATH}"
     FOLDER "${IDE_FOLDER}"
 )
 
@@ -90,10 +88,6 @@ target_link_libraries(${target}
     ${META_PROJECT_NAME}::CameraUtils
 )
 
-add_custom_command(TARGET ${target} POST_BUILD     # Adds a post-build event to MyTest
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
-		"${optix_DLL}"							   # <--this is in-file
-		$<TARGET_FILE_DIR:${target}>)              # <--this is out-file path
 
 # 
 # Compile definitions
@@ -134,6 +128,8 @@ perform_health_checks(
     ${sources}
 )
 
+generate_coverage_report(${target})
+
 
 # 
 # Deployment
@@ -141,6 +137,6 @@ perform_health_checks(
 
 # Executable
 install(TARGETS ${target}
-   RUNTIME DESTINATION ${INSTALL_BIN} COMPONENT examples
-   BUNDLE  DESTINATION ${INSTALL_BIN} COMPONENT examples
+    RUNTIME DESTINATION ${INSTALL_BIN} COMPONENT examples
+    BUNDLE  DESTINATION ${INSTALL_BIN} COMPONENT examples
 )

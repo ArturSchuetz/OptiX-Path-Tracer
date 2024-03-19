@@ -71,7 +71,7 @@ namespace bow {
 
 	private:
 		bool exportFaceGroupToShape(Mesh* mesh, const std::vector<vertex_index> &face);
-		unsigned int getVertexIndex(Mesh* mesh, index_t index);
+		size_t getVertexIndex(Mesh* mesh, index_t index);
 		std::istream &safeGetline(std::istream &is, std::string &t);
 
 		// ==============================================
